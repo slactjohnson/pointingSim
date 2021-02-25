@@ -3,10 +3,10 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 429
-y 594
-w 174
-h 172
+x 1285
+y 342
+w 375
+h 360
 font "helvetica-medium-r-12.0"
 ctlFont "helvetica-medium-r-12.0"
 btnFont "helvetica-medium-r-12.0"
@@ -25,31 +25,13 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Hoff Video)
-object TwoDProfileMonitorClass
-beginObjectProperties
-major 4
-minor 2
-release 1
-x 0
-y 16
-w 170
-h 120
-dataPvStr "$(CAM):ArrayData"
-widthPvStr "$(CAM):ArraySizeX_RBV"
-heightPvStr "$(CAM):ArraySizeY_RBV"
-dataWidth -1
-pvBasedDataSize 1
-nBitsPerPixel 16
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
 minor 1
 release 1
-x 2
+x 224
 y 0
 w 108
 h 16
@@ -59,29 +41,759 @@ fgColor index 14
 bgColor index 0
 useDisplayBg
 value {
-  "$(CAM)"
+  "$(CAM):FF"
 }
 endObjectProperties
 
-# (Text Update)
-object TextupdateClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
-major 10
-minor 0
+major 4
+minor 7
 release 0
-x 124
+x 264
+y 144
+w 72
+h 20
+controlPv "$(CAM):FF:Centroid_X"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+motifWidget
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 168
+w 72
+h 20
+controlPv "$(CAM):FF:Centroid_Y"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+motifWidget
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 208
+w 72
+h 20
+controlPv "$(CAM):FF:TIP_STEPS"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 232
+w 72
+h 20
+controlPv "$(CAM):FF:TILT_STEPS"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 276
+w 72
+h 20
+controlPv "$(CAM):FF:XFACTOR"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 300
+w 72
+h 20
+controlPv "$(CAM):FF:YFACTOR"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 8
+release 0
+# Geometry
+x 188
+y 20
+w 176
+h 112
+# Appearance
+border
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-12.0"
+# Operating Modes
+nPts 1
+# X axis properties
+showXAxis
+xAxisSrc "fromUser"
+xMin 0
+xMax 1440
+# Y axis properties
+showYAxis
+yAxisSrc "fromUser"
+yMin 0
+yMax 1080
+# Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+# Trace Properties
+numTraces 1
+xPv {
+  0 "$(CAM):FF:Centroid_X"
+}
+yPv {
+  0 "$(CAM):FF:Centroid_Y"
+}
+plotStyle {
+  0 "single point"
+}
+lineThickness {
+  0 4
+}
+plotSymbolType {
+  0 "circle"
+}
+opMode {
+  0 "plot"
+}
+plotColor {
+  0 index 21
+}
+endObjectProperties
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 8
+release 0
+# Geometry
+x 4
+y 20
+w 176
+h 112
+# Appearance
+border
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-12.0"
+# Operating Modes
+nPts 1
+# X axis properties
+showXAxis
+xAxisSrc "fromUser"
+xMin 0
+xMax 2592
+# Y axis properties
+showYAxis
+yAxisSrc "fromUser"
+yMin 0
+yMax 1944
+# Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+# Trace Properties
+numTraces 1
+xPv {
+  0 "$(CAM):NF:Centroid_X"
+}
+yPv {
+  0 "$(CAM):NF:Centroid_Y"
+}
+plotStyle {
+  0 "single point"
+}
+lineThickness {
+  0 4
+}
+plotSymbolType {
+  0 "circle"
+}
+opMode {
+  0 "plot"
+}
+plotColor {
+  0 index 21
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 36
 y 0
-w 48
+w 108
 h 16
-controlPv "$(CAM):IMAGE1:ArrayRate_RBV"
-precision 1
-fgColor index 16
-fgAlarm
-bgColor index 12
-fill
-font "courier-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-lineWidth 1
-lineAlarm
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "$(CAM):NF"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 148
+w 60
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Centroid X"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 172
+w 60
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Centroid Y"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 212
+w 52
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tilt Motor"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 236
+w 53
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tip Motor"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 304
+w 57
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tip Factor"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 280
+w 56
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tilt Factor"
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 144
+w 72
+h 20
+controlPv "$(CAM):NF:Centroid_X"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+motifWidget
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 148
+w 60
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Centroid X"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 172
+w 60
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Centroid Y"
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 168
+w 72
+h 20
+controlPv "$(CAM):NF:Centroid_Y"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+motifWidget
+limitsFromDb
+nullColor index 0
+fastUpdate
+useHexPrefix
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 208
+w 72
+h 20
+controlPv "$(CAM):NF:TIP_STEPS"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 212
+w 52
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tilt Motor"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 232
+w 72
+h 20
+controlPv "$(CAM):NF:TILT_STEPS"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+limitsFromDb
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 236
+w 53
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tip Motor"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 280
+w 56
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tilt Factor"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 276
+w 72
+h 20
+controlPv "$(CAM):NF:XFACTOR"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 300
+w 72
+h 20
+controlPv "$(CAM):NF:YFACTOR"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 304
+w 57
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Tip Factor"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 264
+y 332
+w 72
+h 20
+controlPv "$(CAM):FF:NOISE"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 196
+y 336
+w 32
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Noise"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 80
+y 332
+w 72
+h 20
+controlPv "$(CAM):NF:NOISE"
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+editable
+motifWidget
+precision 2
+nullColor index 0
+useHexPrefix
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 12
+y 336
+w 32
+h 14
+font "helvetica-medium-r-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Noise"
+}
+autoSize
 endObjectProperties
 

@@ -12,7 +12,7 @@ if [ -f    ${SETUP_SITE_TOP}/epicsenv-cur.sh ]; then
     source ${SETUP_SITE_TOP}/epicsenv-cur.sh
 fi
 
-export CAM=LAS:TEST:NF
+export CAM=LAS:TEST
 
 edm -x -eolc \
     -m "CAM=${CAM}" \
